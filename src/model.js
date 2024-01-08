@@ -10,7 +10,7 @@ export class Human extends Model {
   }
 
   getFullName() {
-    // TODO: Implement this method
+    return (this.fname + " " + this.lname)
   }
 }
 
@@ -74,5 +74,8 @@ Animal.init(
 
 Human.hasMany(Animal, {foreignKey: 'humanId'});
 Animal.belongsTo(Human, {foreignKey: 'humanId'})
+
+const h = await Human.findOne()
+console.log(h.getFullName())
 
 export default db;
