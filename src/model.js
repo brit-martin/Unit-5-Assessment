@@ -14,7 +14,32 @@ export class Human extends Model {
   }
 }
 
-// TODO: Human.init()
+Human.init(
+  { 
+    humanId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNUll: false,
+    },
+    fname: {
+      type: DataTypes.STRING,
+      allowNUll: false,
+    },
+    lname: {
+      type: DataTypes.STRING,
+      allowNUll: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNUll: false,
+    },
+  },
+  {
+    modelName: 'human',
+    sequelize: db,
+  }
+ )
 
 export class Animal extends Model {
   [util.inspect.custom]() {
@@ -22,8 +47,32 @@ export class Animal extends Model {
   }
 }
 
-// TODO: Animal.init()
+Animal.init(
+  {
+    animalId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNUll: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNUll: false,  
+    },
+    species: {
+      type: DataTypes.STRING,
+      allowNULL: false,
+    },
+    birthYear: {
+      type: DataTypes.INTEGER,
+    },
+  },
+  {
+    modelName: 'animal',
+    sequelize: db,
+  })
 
-// TODO: Define Relationship
+Human.hasMany(Animal, {foreignKey: 'humanId'});
+Animal.belongsTo(Human, {foreignKey: 'humanId'})
 
 export default db;
