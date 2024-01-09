@@ -76,6 +76,6 @@ Human.hasMany(Animal, {foreignKey: 'humanId'});
 Animal.belongsTo(Human, {foreignKey: 'humanId'})
 
 const h = await Human.findOne()
-console.log(h.getFullName())
+// console.log(h.getFullName())
 
 export default db;

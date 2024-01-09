@@ -12,8 +12,8 @@ SELECT SUM(num_cupcakes) FROM orders WHERE processed = 'false';
 
 //Problem 4
 
-SELECT name,SUM(num_cupcakes) FROM cupcakes LEFT JOIN orders ON cupcakes.id = orders.
-cupcake_id GROUP BY name  ORDER BY name;
+SELECT name, SUM(num_cupcakes) FROM cupcakes LEFT JOIN orders ON cupcakes.id = orders.
+cupcake_id GROUP BY name ORDER BY name;
 
 //Problem 5
 
