@@ -67,5 +67,8 @@ printHumansAndAnimals()
 // Return a Set containing the full names of all humans
 // with animals of the given species.
 export async function getHumansByAnimalSpecies(species) {
-    const humans = new Set()
+    const humans = new Set();
+    humans.add(humanName)
+    
 }
+console.log( await getHumansByAnimalSpecies('dog'))
