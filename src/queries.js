@@ -48,17 +48,16 @@ export const query8 = await Human.findAll({
 
 // Print a directory of humans and their animals
 export async function printHumansAndAnimals() {
-    const person = await Human.findAll()
+    const peopleArr = await Human.findAll()
 
-    for (let i=0; i < person.length; i ++){
-        console.log('heyyy')
-        console.log(person[i])
-        for (let k =0; k < person[i].length; k++){
-            let humanName = person[i][k]
-            console.log('-----')
-            console.log(humanName)
+    for (let i=0; i < peopleArr.length; i ++){
+        console.log(peopleArr[i].getFullName())
+        
+        let animal = await peopleArr[i].getAnimals()
+        
+        for (let k =0; k < animal.length; k ++){
+            console.log('- ' + animal[k].name + ", " + animal[k].species)
         }
-           
     }
 }
 
@@ -67,8 +66,8 @@ printHumansAndAnimals()
 // Return a Set containing the full names of all humans
 // with animals of the given species.
 export async function getHumansByAnimalSpecies(species) {
-    const humans = new Set();
-    humans.add(humanName)
+    // const humans = new Set();
+    // humans.add(humanName)
     
 }
 console.log( await getHumansByAnimalSpecies('dog'))
